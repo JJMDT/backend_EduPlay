@@ -3,7 +3,8 @@ const app = express();
 const PORT = 3000;
 const HOST =  '127.0.0.1';
 
-
+const routerAuth = require('./src/routes/auth.routes');
+app.use('/auth', routerAuth);
 
 app.get('/', (req, res) => {
   res.send('Bienvenido a la api de EduPlay!');
