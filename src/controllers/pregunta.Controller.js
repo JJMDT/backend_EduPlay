@@ -3,6 +3,7 @@ const services = require('../services/preguntas.services.js')
 exports.getPreguntaController = async (req, res) => {
   try {
     const preguntas = await services.getPreguntaServices();
+    console.log("no hay pregunta")
     res.json(preguntas);
   } catch (err) {
     res.status(500).json({ error: err.message });

@@ -8,3 +8,15 @@ exports.getPreguntaServices = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+exports.EliminarPreguntasServices = async (id) =>{
+  try{
+    console.log("exitoso desde services")
+    return await repository.deletePreguntaRepository(id) 
+    
+
+  }catch (err) {
+    console.log("asdasd")
+    res.status(500).json({ error: err.message });
+  }
+}
