@@ -1,9 +1,11 @@
 const authRepository = require('../repository/auth.repository.js');
 
-exports.registerService = async (usuario) => {
-    try {
-       return await authRepository.registerRepository(usuario);
-    } catch (error) {
-        throw new Error('Error al registrar el usuario: ' + error.message);
+exports.loginService = async ({username,password}) => {
+    const user = await authRepository.findUserByUsername(username,password);
+    if (!user) {
+        throw new Error('Credenciales inválidas');
     }
-}
+    
+
+    return { message: 'Login exitoso', user };
+};

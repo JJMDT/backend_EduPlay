@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 const HOST =  '127.0.0.1';
+const cors = require('cors');
+
+app.use(cors()); // permite todos los orígenes
+
 
 const routerAuth = require('./src/routes/auth.routes');
 const routerPreguntas = require('./src/routes/preguntas.routes');

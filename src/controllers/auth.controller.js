@@ -1,14 +1,13 @@
 const authService = require('../services/auth.service');
 
-exports.login = (req, res) => {
-    res.send('Login endpoint');
-}
-exports.register = async (req, res) => {
+
+
+exports.login = async (req, res) => {
     try {
-        const usuario = req.body;
-        res.send( await authService.registerService(usuario))
-        
+        const user = await authService.loginService(req.body);
+        res.status(200).json(user);
+
     } catch (error) {
-        res.status(500).json({ error: 'Error al registrar el usuario: ' + error.message });
-    }
+        res.status(500).json({ error: 'Error al iniciar sesión: ' + error.message });
+    }    
 }

@@ -12,21 +12,10 @@ const loadUsers = () => {
     }
 };
 
-exports.registerRepository = async (usuario) => {
-    try {
-        let users = loadUsers(); // Recargar los datos cada vez
-        const newUser = {
-            id: users.length + 1,
-            ...usuario
-        };
-        users.push(newUser);
 
-        // Guardar cambios en el archivo
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
 
-        console.log('Usuario registrado:', newUser);
-        return newUser;
-    } catch (error) {
-        throw new Error('Error al registrar el usuario: ' + error.message);
-    }
+exports.findUserByUsername = async (username, password) => {
+    const users = loadUsers();
+    return users.find(user => user.username === username && user.password === password);
 };
+
