@@ -9,6 +9,8 @@ exports.getPreguntaServices = async (req, res) => {
   }
 };
 
+//clau//
+
 exports.EliminarPreguntasServices = async (id) =>{
   try{
     console.log("exitoso desde services")

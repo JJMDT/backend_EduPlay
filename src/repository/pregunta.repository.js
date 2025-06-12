@@ -12,6 +12,7 @@ exports.getPreguntaRepository = async (req, res) => {
   }
 }
 
+//clau//
 exports.deletePreguntaRepository = async (id) => {
   try {
 
