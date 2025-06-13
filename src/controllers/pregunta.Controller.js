@@ -42,7 +42,7 @@ exports.putPreguntaController = async (req, res) => {
 
 //clau//
 
-exports.eliminarPregunta = async (req,resq) => {
+exports.eliminarPregunta = async (req,res) => {
     try{
 
         const id = req.params.id;
