@@ -42,6 +42,18 @@ exports.putPreguntaController = async (req, res) => {
 
 //clau//
 
+exports.crearPreguntaController = async (req,res) => {
+    try {
+        let nuevaPregunta = req.body;
+        console.log("esta es la pregunta que viene del cliente")
+        console.log(nuevaPregunta)
+        res.send(await services.crearPreguntaServices(nuevaPregunta));
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+
+}
+
 exports.eliminarPregunta = async (req,res) => {
     try{
 
@@ -56,3 +68,13 @@ exports.eliminarPregunta = async (req,res) => {
 
     }
 }
+
+// Nuevo controller para traer todas las preguntas
+exports.getAllPreguntasController = async (req, res) => {
+  try {
+    const preguntas = await services.getAllPreguntasServices();
+    res.json(preguntas);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
