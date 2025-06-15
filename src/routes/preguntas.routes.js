@@ -5,6 +5,7 @@ const controlador = require('../controllers/pregunta.Controller.js');
 routerPreguntas.use(express.json());
 
 routerPreguntas.get('/traer', controlador.getPreguntaController);
+routerPreguntas.get('/traerbyId/:id', controlador.getPreguntaByIdController);
 
 
 module.exports = routerPreguntas;

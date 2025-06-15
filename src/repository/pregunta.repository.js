@@ -9,3 +9,22 @@ exports.getPreguntaRepository = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+exports.getPreguntaByIdRepository = async (id) => {
+  try {
+    const pregunta = preguntas.find(p => p.id === id);
+    return pregunta || null;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+};
+
+
+/*exports.getPreguntaByIdRepository = async (id) => {
+  try {
+    let pregunta = preguntas.find(p => p.id == id);
+    return pregunta;
+  } catch (error) {
+    console.log(error);
+  }
+};*/

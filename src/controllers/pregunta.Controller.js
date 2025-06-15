@@ -11,12 +11,25 @@ exports.getPreguntaController = async (req, res) => {
 
 exports.getPreguntaByIdController = async (req, res) => {
   try {
-    const pregunta = await getPreguntaByIdService(req.params.id);
+    const id = parseInt(req.params.id);
+    const pregunta = await services.getPreguntaByIdService(id);
+    if (!pregunta) {
+      return res.status(404).json({ mensaje: 'Pregunta no encontrada' });
+    }
+    res.json(pregunta);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+/*exports.getPreguntaByIdController = async (req, res) => {
+  try {
+    const pregunta = await services.getPreguntaByIdService(req.params.id);
     res.json(pregunta);
   } catch (err) {
     res.status(400).json({ error: 'No encontrada' });
   }
-};
+};*/
 
 exports.getRespuestaByIdController = async (req, res) => {
   try {

@@ -8,3 +8,11 @@ exports.getPreguntaServices = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+exports.getPreguntaByIdService = async (id) => {
+  try {
+    return await repository.getPreguntaByIdRepository(id);
+  } catch (err) {
+    throw new Error(err.message);
+  }
+};

@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const PORT = 3000;
 const HOST =  '127.0.0.1';
@@ -6,6 +7,11 @@ const HOST =  '127.0.0.1';
 const routerAuth = require('./src/routes/auth.routes');
 const routerPreguntas = require('./src/routes/preguntas.routes');
 app.use('/auth', routerAuth);
+app.use('/pregunta', routerPreguntas);
+
+
+app.use(cors());
+
 
 app.get('/', (req, res) => {
   res.send('Bienvenido a la api de EduPlay!');
