@@ -6,6 +6,8 @@ routerPreguntas.use(express.json());
 
 routerPreguntas.get('/traer', controlador.getPreguntaController);
 routerPreguntas.get('/traerbyId/:id', controlador.getPreguntaByIdController);
+routerPreguntas.put('/:id', controlador.putPreguntaController);
+
 
 
 module.exports = routerPreguntas;

@@ -1,0 +1,19 @@
+@url = http://localhost:3000
+
+###
+
+PUT http://localhost:3000/pregunta/5
+Content-Type: application/json
+
+{
+  "pregunta": "¿Cuál es la capital de España?",
+  "opciones": ["Madrid", "Barcelona", "Sevilla", "Valencia"],
+  "respuestaCorrecta": "Madrid"
+}
+
+
+###
+GET http://localhost:3000/pregunta/traerbyId/5
+
+###
+GET http://localhost:3000/pregunta/traer

@@ -16,3 +16,12 @@ exports.getPreguntaByIdService = async (id) => {
     throw new Error(err.message);
   }
 };
+
+exports.putPreguntaServices = async (id, pregunta) => {
+  try {
+    return await repository.putPreguntaRepository(id, pregunta);
+  } catch (err) {
+    throw new Error(err.message);
+  }
+};
+

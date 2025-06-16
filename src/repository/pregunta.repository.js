@@ -19,12 +19,11 @@ exports.getPreguntaByIdRepository = async (id) => {
   }
 };
 
+exports.putPreguntaRepository = async (id, pregunta) => {
+  const index = preguntas.findIndex(p => p.id === Number(id));
+  if (index === -1) 
+    throw new Error('Pregunta no encontrada');
+  preguntas[index-1] = { pregunta };
+  return preguntas[index];
+};
 
-/*exports.getPreguntaByIdRepository = async (id) => {
-  try {
-    let pregunta = preguntas.find(p => p.id == id);
-    return pregunta;
-  } catch (error) {
-    console.log(error);
-  }
-};*/

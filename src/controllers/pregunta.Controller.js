@@ -22,15 +22,6 @@ exports.getPreguntaByIdController = async (req, res) => {
   }
 };
 
-/*exports.getPreguntaByIdController = async (req, res) => {
-  try {
-    const pregunta = await services.getPreguntaByIdService(req.params.id);
-    res.json(pregunta);
-  } catch (err) {
-    res.status(400).json({ error: 'No encontrada' });
-  }
-};*/
-
 exports.getRespuestaByIdController = async (req, res) => {
   try {
     const respuesta = await getRespuestaByIdService(req.params.id);
@@ -40,12 +31,14 @@ exports.getRespuestaByIdController = async (req, res) => {
   }
 };
 
+
 exports.putPreguntaController = async (req, res) => {
   try {
-    const pregunta = req.body
     const id = req.params.id
-    await putPreguntaServices(id, pregunta);
-    res.json({ mensaje: 'Actualizada correctamente' });
+    const pregunta = req.body
+
+    await services.putPreguntaServices(id, pregunta);
+    res.json({ mensaje: 'Pregunta actualizada correctamente' });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
