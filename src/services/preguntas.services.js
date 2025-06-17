@@ -1,12 +1,18 @@
 const repository = require('../repository/pregunta.repository')
+//clau//
 
-exports.getPreguntaServices = async (req, res) => {
-  try {
-    const preguntas = await repository.getPreguntaRepository();
-    return preguntas;
-  } catch (err) {
+exports.EliminarPreguntasServices = async (id) =>{
+  try{
+    console.log("exitoso desde services")
+    return await repository.deletePreguntaRepository(id) 
+    
+
+  }catch (err) {
+    console.log("asdasd")
     res.status(500).json({ error: err.message });
   }
+}
+
 };
 
 exports.getPreguntaByIdService = async (id) => {

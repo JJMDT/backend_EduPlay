@@ -1,14 +1,13 @@
 const services = require('../services/preguntas.services.js')
+//clau//
 
-exports.getPreguntaController = async (req, res) => {
-  try {
-    const preguntas = await services.getPreguntaServices();
-    res.json(preguntas);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
+exports.eliminarPregunta = async (req,res) => {
+    try{
 
+
+        const id = req.params.id;
+        const pregunta = await services.EliminarPreguntasServices(id)
+        console.log("exitoso desde controler")
 exports.getPreguntaByIdController = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
@@ -22,14 +21,14 @@ exports.getPreguntaByIdController = async (req, res) => {
   }
 };
 
-exports.getRespuestaByIdController = async (req, res) => {
-  try {
-    const respuesta = await getRespuestaByIdService(req.params.id);
-    res.json(respuesta);
-  } catch (err) {
-    res.status(400).json({ error: 'No encontrada' });
-  }
-};
+
+    } catch (err) {
+
+        console.log("asdasd")
+        res.status(500).json({ error: err.message });
+
+    }
+}
 
 
 exports.putPreguntaController = async (req, res) => {
