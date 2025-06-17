@@ -6,7 +6,7 @@ exports.getPreguntaRepository = async () => {
   try {
     let pregunta;
     let intentos = 0;
-    const maxIntentos = 100;
+    const maxIntentos = 10;
 
     do {
       const randomNumber = Math.floor(Math.random() * preguntas.length) + 1;
@@ -16,9 +16,12 @@ exports.getPreguntaRepository = async () => {
 
     repetidas.push(pregunta);
 
-    if (repetidas.length === preguntas.length) {
+    if (repetidas.length === preguntas.length+1) {
+      console.log("repetidas vacia")
       repetidas = [];  
     }
+
+    console.log(repetidas.length)
 
     return pregunta;
   } catch (err) {
