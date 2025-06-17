@@ -1,22 +1,4 @@
 const preguntas = require('../DB/db.json')
-//clau//
-exports.deletePreguntaRepository = async (id) => {
-  try {
-
-    const indice = await preguntas.findIndex(pregunta => pregunta.id == id)
-    
-
-    if (indice>=0) {
-
-      preguntas.splice(indice,1);
-      console.log("se elimino el id")
-      return preguntas
-
-    } else {
-      console.log("no hay nada")
-      return []
-    }
-
 
 let repetidas = [];
 
@@ -54,8 +36,6 @@ exports.getPreguntaByIdRepository = async (id) => {
   } catch (err) {
     throw new Error(err.message);
   }
-
-}
 };
 
 exports.putPreguntaRepository = async (id, pregunta) => {
@@ -65,4 +45,3 @@ exports.putPreguntaRepository = async (id, pregunta) => {
   preguntas[index-1] = { pregunta };
   return preguntas[index];
 };
-
