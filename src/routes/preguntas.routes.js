@@ -5,7 +5,6 @@ const puntuacion = require('../controllers/score.controller.js')
 
 routerPreguntas.use(express.json());
 
-routerPreguntas.get('/traer', controlador.getPreguntaController);
 routerPreguntas.delete('/:id', controlador.eliminarPregunta);
 routerPreguntas.post('/puntuacion',puntuacion.calcularPuntaje)
 
