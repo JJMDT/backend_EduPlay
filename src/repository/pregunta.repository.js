@@ -3,18 +3,6 @@ const fs = require('fs').promises;
 const path = require('path');
 const dbPath = path.join(__dirname, '../DB/db.json');
 
-exports.getPreguntaRepository = async (req, res) => {
-  try {
-    let pregunta = preguntas.find(p => p.id == 1);
-    console.log(pregunta)
-    return  pregunta
-
-  } catch (err) {
-    console.log("asdasd")
-    res.status(500).json({ error: err.message });
-  }
-}
-
 //clau//
 
 // Función para leer el archivo JSON
@@ -60,11 +48,3 @@ exports.deletePreguntaRepository = async (id) => {
   }
 }
 
-// Nueva función para traer todas las preguntas
-exports.getAllPreguntasRepository = async () => {
-  try {
-    return await leerPreguntas();
-  } catch (err) {
-    throw new Error(err.message);
-  }
-}
