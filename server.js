@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
 const PORT = 3000;
 const HOST = '127.0.0.1';
@@ -7,7 +6,6 @@ const HOST = '127.0.0.1';
 const routerAuth = require('./src/routes/auth.routes');
 const routerPreguntas = require('./src/routes/preguntas.routes');
 
-app.use(cors());           // Habilitar CORS
 app.use(express.json());   // Middleware para parsear JSON
 
 app.use('/auth', routerAuth);
