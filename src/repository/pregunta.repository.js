@@ -1,12 +1,28 @@
 const preguntas = require('../DB/db.json')
 
-exports.getPreguntaRepository = async (req, res) => {
+let repetidas = [];
+
+exports.getPreguntaRepository = async () => {
   try {
-    const randomNumber = Math.floor(Math.random() * preguntas.length) + 1;
-    let pregunta = preguntas.find(p => p.id == randomNumber);
-    return  pregunta
+    let pregunta;
+    let intentos = 0;
+    const maxIntentos = 100;
+
+    do {
+      const randomNumber = Math.floor(Math.random() * preguntas.length) + 1;
+      pregunta = preguntas.find((p) => p.id == randomNumber);
+      intentos++;
+    } while (repetidas.includes(pregunta) && intentos < maxIntentos);
+
+    repetidas.push(pregunta);
+
+    if (repetidas.length === preguntas.length) {
+      repetidas = [];  
+    }
+
+    return pregunta;
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    throw new Error(err.message);
   }
 };
 
