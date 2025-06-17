@@ -3,6 +3,10 @@ const cors = require('cors');
 const app = express();
 const PORT = 3000;
 const HOST =  '127.0.0.1';
+const cors = require('cors');
+
+app.use(cors()); // permite todos los orígenes
+
 
 app.use(cors());
 
