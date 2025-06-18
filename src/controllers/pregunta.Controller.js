@@ -32,7 +32,7 @@ exports.eliminarPregunta = async (req,res) => {
 
 exports.getPreguntaController = async (req, res) => {
   try {
-    const preguntas = await services.getPreguntaServices();
+    const preguntas = await services.getPreguntaService();
     res.json(preguntas);
   } catch (err) {
     res.status(500).json({ error: err.message });

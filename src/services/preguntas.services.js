@@ -1,5 +1,12 @@
 const repository = require('../repository/pregunta.repository')
 
+exports.getPreguntaService = async () => {
+  try {
+    return await repository.getPreguntaRepository();
+  } catch (err) {
+    throw new Error(err.message);
+  }
+};
 
 exports.getPreguntaByIdService = async (id) => {
   try {
