@@ -1,7 +1,7 @@
 const {guardarPuntaje, obtenerPuntaje} = require('../repository/score.repository')
 
 const guardarPuntajeService = async (puntaje) => {
-    const nuevoPuntaje = {puntaje} 
+    const nuevoPuntaje = puntaje 
     return await guardarPuntaje(nuevoPuntaje)
 }
 
