@@ -1,16 +1,13 @@
-const fs = require('fs').promises
-const path = require('path')
-const filePath = path.join(__dirname,'../DB/score.json')
+const Score = require('../models/score')
 
 const guardarPuntaje = async (puntaje) => {
     try {
-        const puntos = await obtenerPuntaje()
-        puntos.push(puntaje)
-        await fs.writeFile(filePath,JSON.stringify(puntos,null,2))
-        console.log('recibiendo puntaje',puntaje)
-        return puntaje
+        const nuevoPuntaje = new Score({ puntos: puntaje });
+        const resultado = await nuevoPuntaje.save();
+        return resultado;
     } catch (error) {
         console.error('Error al guardar puntaje', error)
+        throw error;
     }
 }
 
