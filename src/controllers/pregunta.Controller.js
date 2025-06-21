@@ -1,4 +1,6 @@
 const services = require('../services/preguntas.services.js')
+const { getAllPreguntasService } = require('../services/preguntas.services');
+
 
 //clau//
 
@@ -39,9 +41,22 @@ exports.getPreguntaController = async (req, res) => {
   }
 };
 
+
+
+// Controlador GET /preguntas
+exports.getAllPreguntasController = async (req, res) => {
+  try {
+    const preguntas = await getAllPreguntasService();
+    res.status(200).json(preguntas);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+
 exports.getPreguntaByIdController = async (req, res) => {
   try {
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
     const pregunta = await services.getPreguntaByIdService(id);
     if (!pregunta) {
       return res.status(404).json({ mensaje: 'Pregunta no encontrada' });

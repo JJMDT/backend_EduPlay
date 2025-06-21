@@ -26,6 +26,74 @@ let repetidas = [];
 
 exports.getPreguntaRepository = async () => {
   try {
+    const total = await Pregunta.countDocuments();
+    if (repetidas.length >= total) {
+      repetidas = [];
+    }
+
+    let pregunta;
+    let intentos = 0;
+    const maxIntentos = 10;
+
+    do {
+      const random = Math.floor(Math.random() * total);
+      const resultado = await Pregunta.find().skip(random).limit(1);
+      pregunta = resultado[0];
+      intentos++;
+    } while (pregunta && repetidas.includes(pregunta._id.toString()) && intentos < maxIntentos);
+
+    if (pregunta) repetidas.push(pregunta._id.toString());
+    return pregunta;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+};
+
+// Repositorio para obtener todas las preguntas
+exports.getAllPreguntasRepository = async () => {
+  try {
+    const preguntas = await Pregunta.find();
+    return preguntas;
+  } catch (err) {
+    throw new Error('Error al obtener todas las preguntas');
+  }
+};
+
+
+exports.getPreguntaByIdRepository = async (id) => {
+  try {
+    const pregunta = await Pregunta.findById(id);
+    return pregunta || null;
+  } catch (err) {
+    throw new Error('error en la búsqueda');
+  }
+};
+
+
+
+exports.putPreguntaRepository = async (id, data) => {
+  try {
+    const result = await Pregunta.findByIdAndUpdate(id, data, { new: true });
+    if (!result) throw new Error('Pregunta no encontrada');
+    return result;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+};
+
+
+
+
+
+
+
+
+
+
+/*let repetidas = [];
+
+exports.getPreguntaRepository = async () => {
+  try {
     let pregunta;
     let intentos = 0;
     const maxIntentos = 10;
@@ -49,9 +117,9 @@ exports.getPreguntaRepository = async () => {
   } catch (err) {
     throw new Error(err.message);
   }
-};
+};*/
 
-exports.getPreguntaByIdRepository = async (id) => {
+/*exports.getPreguntaByIdRepository = async (id) => {
   try {
     const pregunta = preguntas.find(p => p.id === id);
     return pregunta || null;
@@ -66,5 +134,5 @@ exports.putPreguntaRepository = async (id, pregunta) => {
     throw new Error('Pregunta no encontrada');
   preguntas[index-1] = { pregunta };
   return preguntas[index];
-};
+};*/
 

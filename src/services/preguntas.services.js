@@ -1,4 +1,6 @@
 const repository = require('../repository/pregunta.repository')
+const { getAllPreguntasRepository } = require('../repository/pregunta.repository');
+
 
 exports.getPreguntaService = async () => {
   try {
@@ -7,6 +9,19 @@ exports.getPreguntaService = async () => {
     throw new Error(err.message);
   }
 };
+
+
+
+// Servicio para obtener todas las preguntas
+exports.getAllPreguntasService = async () => {
+  try {
+    const preguntas = await getAllPreguntasRepository();
+    return preguntas;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
 
 exports.getPreguntaByIdService = async (id) => {
   try {
