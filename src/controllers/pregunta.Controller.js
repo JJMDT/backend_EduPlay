@@ -41,7 +41,7 @@ exports.getPreguntaController = async (req, res) => {
 
 exports.getPreguntaByIdController = async (req, res) => {
   try {
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
     const pregunta = await services.getPreguntaByIdService(id);
     if (!pregunta) {
       return res.status(404).json({ mensaje: 'Pregunta no encontrada' });

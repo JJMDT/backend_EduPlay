@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const crearAdmin = require('../models/init');
 
 
-const URI = `mongodb+srv://${configDB.user}:${configDB.password}@cluster0.p6ntsd8.mongodb.net/${configDB.database}?retryWrites=true&w=majority&appName=Cluster0`
+//const URI = `mongodb+srv://${configDB.user}:${configDB.password}@cluster0.p6ntsd8.mongodb.net/${configDB.database}?retryWrites=true&w=majority&appName=Cluster0`
+const URI = `mongodb+srv://EduplayApp:Admin321.@cluster0.1xypsyq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
 
 exports.getConnection = async() =>{
     try {
@@ -15,3 +16,5 @@ exports.getConnection = async() =>{
         process.exit(1); // Termina el proceso si la conexión falla
     }
 }
+
+this.getConnection();

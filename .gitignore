@@ -13,6 +13,8 @@ logs/
 # Environment variables
 .env
 .env.*
+.ejemplo.env
+.env.lisett
 
 # OS files
 .DS_Store
@@ -37,3 +39,6 @@ coverage/
 # Misc
 *.local
 /src/preguntas.http
+
+#
+npm
