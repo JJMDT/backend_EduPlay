@@ -11,5 +11,6 @@ routerPreguntas.get('/traerbyId/:id', controlador.getPreguntaByIdController);
 routerPreguntas.put('/:id', controlador.putPreguntaController);
 routerPreguntas.post('/crear', controlador.crearPreguntaController);
 routerPreguntas.delete('/:id', controlador.eliminarPreguntaController);
+routerPreguntas.get('/traerTodas', controlador.getAllPreguntasController);
 
 module.exports = routerPreguntas;

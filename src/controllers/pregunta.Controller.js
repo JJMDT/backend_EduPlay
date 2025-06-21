@@ -1,4 +1,6 @@
 const services = require('../services/preguntas.services.js')
+const { getAllPreguntasService } = require('../services/preguntas.services');
+
 
 //clau//
 
@@ -38,6 +40,19 @@ exports.getPreguntaController = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+
+
+// Controlador GET /preguntas
+exports.getAllPreguntasController = async (req, res) => {
+  try {
+    const preguntas = await getAllPreguntasService();
+    res.status(200).json(preguntas);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 
 exports.getPreguntaByIdController = async (req, res) => {
   try {

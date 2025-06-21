@@ -49,6 +49,15 @@ exports.getPreguntaRepository = async () => {
   }
 };
 
+// Repositorio para obtener todas las preguntas
+exports.getAllPreguntasRepository = async () => {
+  try {
+    const preguntas = await Pregunta.find();
+    return preguntas;
+  } catch (err) {
+    throw new Error('Error al obtener todas las preguntas');
+  }
+};
 
 
 exports.getPreguntaByIdRepository = async (id) => {
