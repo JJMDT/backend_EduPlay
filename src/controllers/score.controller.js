@@ -1,10 +1,10 @@
 const {guardarPuntajeService, obtenerTodoPuntos} = require('../services/score.service')
 
 exports.calcularPuntaje = async (req, res) => {
-    const {puntos} = req.body
+    const {nombre,puntos} = req.body
   try {
     console.log(puntos)
-    const guardar = await guardarPuntajeService(puntos)
+    const guardar = await guardarPuntajeService(nombre,puntos)
     res.status(201).json({mensaje:'puntaje exitoso',puntaje:guardar})
 
   } catch (err) {

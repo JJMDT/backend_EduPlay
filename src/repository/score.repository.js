@@ -1,8 +1,8 @@
 const Score = require('../models/score')
 
-const guardarPuntaje = async (puntaje) => {
+const guardarPuntaje = async (nombre,puntaje) => {
     try {
-        const nuevoPuntaje = new Score({ puntos: puntaje });
+        const nuevoPuntaje = new Score({ nombre:nombre, puntos: puntaje });
         const resultado = await nuevoPuntaje.save();
         return resultado;
     } catch (error) {
