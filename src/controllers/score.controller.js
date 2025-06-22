@@ -12,7 +12,7 @@ exports.calcularPuntaje = async (req, res) => {
   }
 };
 
-const obtenerPuntajes = async (req, res) => {
+exports.obtenerPuntajes = async (req, res) => {
   try {
     const puntos = await obtenerTodoPuntos()
     res.json(puntos)
