@@ -1,13 +1,9 @@
 const services = require('../services/preguntas.services.js')
 const { getAllPreguntasService } = require('../services/preguntas.services');
 
-
-//clau//
-
 exports.crearPreguntaController = async (req, res) => {
   try {
     let nuevaPregunta = req.body;
-    console.log("Esta es la pregunta que viene del cliente:");
     console.log(nuevaPregunta);
     const preguntaCreada = await services.crearPreguntaServices(nuevaPregunta);
     res.status(201).json(preguntaCreada);
@@ -24,13 +20,11 @@ exports.eliminarPreguntaController = async (req, res) => {
     if (!preguntaEliminada) {
       return res.status(404).json({ mensaje: 'Pregunta no encontrada para eliminar' });
     }
-
     res.json({ mensaje: 'Pregunta eliminada correctamente', pregunta: preguntaEliminada });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
-
 
 exports.getPreguntaController = async (req, res) => {
   try {
@@ -41,9 +35,6 @@ exports.getPreguntaController = async (req, res) => {
   }
 };
 
-
-
-// Controlador GET /preguntas
 exports.getAllPreguntasController = async (req, res) => {
   try {
     const preguntas = await getAllPreguntasService();
@@ -52,7 +43,6 @@ exports.getAllPreguntasController = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
 
 exports.getPreguntaByIdController = async (req, res) => {
   try {
@@ -75,7 +65,6 @@ exports.getRespuestaByIdController = async (req, res) => {
     res.status(400).json({ error: 'No encontrada' });
   }
 };
-
 
 exports.putPreguntaController = async (req, res) => {
   try {

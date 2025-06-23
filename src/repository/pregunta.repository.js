@@ -1,6 +1,5 @@
 const Pregunta = require('../models/Pregunta');
 
-//clau//
 exports.crearPreguntaRepository = async (preguntaData) => {
   try {
     const nuevaPregunta = new Pregunta(preguntaData);
@@ -14,7 +13,7 @@ exports.deletePreguntaRepository = async (id) => {
   try {
     const eliminada = await Pregunta.findByIdAndDelete(id);
     if (!eliminada) {
-      return null; // No encontrada
+      return null; 
     }
     return eliminada;
   } catch (err) {
@@ -49,7 +48,6 @@ exports.getPreguntaRepository = async () => {
   }
 };
 
-// Repositorio para obtener todas las preguntas
 exports.getAllPreguntasRepository = async () => {
   try {
     const preguntas = await Pregunta.find();
@@ -58,7 +56,6 @@ exports.getAllPreguntasRepository = async () => {
     throw new Error('Error al obtener todas las preguntas');
   }
 };
-
 
 exports.getPreguntaByIdRepository = async (id) => {
   try {
@@ -69,8 +66,6 @@ exports.getPreguntaByIdRepository = async (id) => {
   }
 };
 
-
-
 exports.putPreguntaRepository = async (id, data) => {
   try {
     const result = await Pregunta.findByIdAndUpdate(id, data, { new: true });
@@ -80,59 +75,3 @@ exports.putPreguntaRepository = async (id, data) => {
     throw new Error(err.message);
   }
 };
-
-
-
-
-
-
-
-
-
-
-/*let repetidas = [];
-
-exports.getPreguntaRepository = async () => {
-  try {
-    let pregunta;
-    let intentos = 0;
-    const maxIntentos = 10;
-
-    do {
-      const randomNumber = Math.floor(Math.random() * preguntas.length) + 1;
-      pregunta = preguntas.find((p) => p.id == randomNumber);
-      intentos++;
-    } while (repetidas.includes(pregunta) && intentos < maxIntentos);
-
-    repetidas.push(pregunta);
-
-    if (repetidas.length === preguntas.length+1) {
-      console.log("repetidas vacia")
-      repetidas = [];  
-    }
-
-    console.log(repetidas.length)
-
-    return pregunta;
-  } catch (err) {
-    throw new Error(err.message);
-  }
-};*/
-
-/*exports.getPreguntaByIdRepository = async (id) => {
-  try {
-    const pregunta = preguntas.find(p => p.id === id);
-    return pregunta || null;
-  } catch (err) {
-    throw new Error(err.message);
-  }
-};
-
-exports.putPreguntaRepository = async (id, pregunta) => {
-  const index = preguntas.findIndex(p => p.id === Number(id));
-  if (index === -1) 
-    throw new Error('Pregunta no encontrada');
-  preguntas[index-1] = { pregunta };
-  return preguntas[index];
-};*/
-

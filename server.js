@@ -12,7 +12,7 @@ const routerAuth = require('./src/routes/auth.routes');
 const routerPreguntas = require('./src/routes/preguntas.routes');
 const routerScore = require('./src/routes/score.routes');
 
-app.use(express.json());   // Middleware para parsear JSON
+app.use(express.json());   
 
 app.use('/auth', routerAuth);
 app.use('/pregunta', routerPreguntas);
@@ -22,8 +22,6 @@ app.get('/', (req, res) => {
   res.send('Bienvenido a la api de EduPlay!');
 });
 
-
-// Ruta comodín para capturar cualquier ruta no definida
 app.use((req, res) => {
   res.status(404).send('Ruta ingresada no existe');
 });

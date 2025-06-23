@@ -7,12 +7,10 @@ const crearAdmin = async () => {
         if(!existe){
             const admin = new User({
                 username: 'admin',
-                password: bcrypt.hashSync('admin123', 10) // Hasheamos la contraseña
+                password: bcrypt.hashSync('admin123', 10) 
             });
             await admin.save();
-            console.log('Usuario administrador creado exitosamente');
         }
-        
     } catch (error) {
         console.error('Error al crear el usuario administrador:', error);
     }
