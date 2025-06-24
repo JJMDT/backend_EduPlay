@@ -24,4 +24,8 @@ const obtenerPuntaje = async () => {
     }
 }
 
-module.exports = { guardarPuntaje, obtenerPuntaje}
+const eliminarTodosLosPuntajes = async () => {
+  return await Score.deleteMany({});
+};
+
+module.exports = { guardarPuntaje, obtenerPuntaje, eliminarTodosLosPuntajes}

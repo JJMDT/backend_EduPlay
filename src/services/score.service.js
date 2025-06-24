@@ -1,4 +1,4 @@
-const {guardarPuntaje, obtenerPuntaje} = require('../repository/score.repository')
+const {guardarPuntaje, obtenerPuntaje, eliminarTodosLosPuntajes} = require('../repository/score.repository')
 
 const guardarPuntajeService = async (nombre,puntaje) => {
     const nuevoPuntaje = puntaje 
@@ -9,4 +9,8 @@ const obtenerTodoPuntos = async () => {
     return await obtenerPuntaje()
 }
 
-module.exports = { guardarPuntajeService, obtenerTodoPuntos}
+const reiniciarPuntajesService = async () => {
+  return await eliminarTodosLosPuntajes();
+};
+
+module.exports = { guardarPuntajeService, obtenerTodoPuntos, reiniciarPuntajesService }
