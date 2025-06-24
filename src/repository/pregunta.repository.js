@@ -21,32 +21,22 @@ exports.deletePreguntaRepository = async (id) => {
   }
 };
 
-let repetidas = [];
-
-exports.getPreguntaRepository = async () => {
+let repetidas = 1
+exports.getPreguntaRepository  = async () => {
   try {
     const total = await Pregunta.countDocuments();
-    if (repetidas.length >= total) {
-      repetidas = [];
+    if (repetidas == total) {
+      repetidas = 1;
     }
-
-    let pregunta;
-    let intentos = 0;
-    const maxIntentos = 10;
-
-    do {
-      const random = Math.floor(Math.random() * total);
-      const resultado = await Pregunta.find().skip(random).limit(1);
-      pregunta = resultado[0];
-      intentos++;
-    } while (pregunta && repetidas.includes(pregunta._id.toString()) && intentos < maxIntentos);
-
-    if (pregunta) repetidas.push(pregunta._id.toString());
+      const resultado = await Pregunta.find().skip(repetidas).limit(1);
+      let pregunta = resultado[0];
+     
+    repetidas++;
     return pregunta;
   } catch (err) {
     throw new Error(err.message);
   }
-};
+}
 
 exports.getAllPreguntasRepository = async () => {
   try {
@@ -75,3 +65,4 @@ exports.putPreguntaRepository = async (id, data) => {
     throw new Error(err.message);
   }
 };
+
