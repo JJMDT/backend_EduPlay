@@ -1,5 +1,5 @@
-const services = require('../services/preguntas.services.js')
-const { getAllPreguntasService } = require('../services/preguntas.services');
+const services = require('../services/preguntas.service.js')
+const { getAllPreguntasService } = require('../services/preguntas.service.js');
 
 
 //clau//
