@@ -1,6 +1,5 @@
 const Pregunta = require('../models/Pregunta');
 
-//clau//
 exports.crearPreguntaRepository = async (preguntaData) => {
   try {
     const nuevaPregunta = new Pregunta(preguntaData);
@@ -14,7 +13,7 @@ exports.deletePreguntaRepository = async (id) => {
   try {
     const eliminada = await Pregunta.findByIdAndDelete(id);
     if (!eliminada) {
-      return null; // No encontrada
+      return null; 
     }
     return eliminada;
   } catch (err) {
@@ -48,7 +47,6 @@ exports.getAllPreguntasRepository = async () => {
   }
 };
 
-
 exports.getPreguntaByIdRepository = async (id) => {
   try {
     const pregunta = await Pregunta.findById(id);
@@ -57,8 +55,6 @@ exports.getPreguntaByIdRepository = async (id) => {
     throw new Error('error en la búsqueda');
   }
 };
-
-
 
 exports.putPreguntaRepository = async (id, data) => {
   try {
@@ -69,13 +65,4 @@ exports.putPreguntaRepository = async (id, data) => {
     throw new Error(err.message);
   }
 };
-
-
-
-
-
-
-
-
-
 

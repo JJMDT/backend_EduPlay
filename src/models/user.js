@@ -12,13 +12,11 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-
 },{
     timestamps: true,
     versionKey: false
 });
 
-// Método para comparar contraseñas
 userSchema.methods.comparePassword = async function(candidatePassword) {
     return await bcrypt.compare(candidatePassword, this.password);
 };

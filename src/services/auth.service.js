@@ -5,7 +5,5 @@ exports.loginService = async ({username,password}) => {
     if (!user) {
         throw new Error('Credenciales inválidas');
     }
-    
-
     return { message: 'Login exitoso', user };
 };

@@ -10,9 +10,6 @@ exports.getPreguntaService = async () => {
   }
 };
 
-
-
-// Servicio para obtener todas las preguntas
 exports.getAllPreguntasService = async () => {
   try {
     const preguntas = await getAllPreguntasRepository();
@@ -21,7 +18,6 @@ exports.getAllPreguntasService = async () => {
     throw new Error(error.message);
   }
 };
-
 
 exports.getPreguntaByIdService = async (id) => {
   try {
@@ -38,11 +34,9 @@ exports.putPreguntaServices = async (id, pregunta) => {
     throw new Error(err.message);
   }
 };
-//clau//
 
 exports.crearPreguntaServices = async (pregunta) => {
   try {
-    console.log(`desde servicio - ${JSON.stringify(pregunta)}`);
     return await repository.crearPreguntaRepository(pregunta);
   } catch (err) {
     throw new Error('Error al crear la pregunta: ' + err.message);
@@ -51,7 +45,6 @@ exports.crearPreguntaServices = async (pregunta) => {
 
 exports.EliminarPreguntasServices = async (id) => {
   try {
-    console.log("exitoso desde services");
     return await repository.deletePreguntaRepository(id);
   } catch (err) {
     throw new Error(err.message);

@@ -1,8 +1,8 @@
 const Score = require('../models/score')
 
-const guardarPuntaje = async (puntaje) => {
+const guardarPuntaje = async (nombre,puntaje) => {
     try {
-        const nuevoPuntaje = new Score({ puntos: puntaje });
+        const nuevoPuntaje = new Score({ nombre:nombre, puntos: puntaje });
         const resultado = await nuevoPuntaje.save();
         return resultado;
     } catch (error) {
@@ -13,12 +13,19 @@ const guardarPuntaje = async (puntaje) => {
 
 const obtenerPuntaje = async () => {
     try {
-        const data = await fs.readFile(filePath,'utf-8')
-        return JSON.parse(data)
+        const datos = await Score.find().sort({puntos: -1}).limit(10).lean()
+        return datos.map(item=>({
+            nombre: item.nombre,
+            puntos: item.puntos
+        }))
     } catch (error) {
         console.error('error al leer el puntaje', error)
-        return []
+        throw error
     }
 }
 
-module.exports = { guardarPuntaje, obtenerPuntaje}
+const eliminarTodosLosPuntajes = async () => {
+  return await Score.deleteMany({});
+};
+
+module.exports = { guardarPuntaje, obtenerPuntaje, eliminarTodosLosPuntajes}

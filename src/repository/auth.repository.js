@@ -6,7 +6,6 @@ exports.findUserByUsername = async (username, password) => {
         if (!user) {
             return null;
         }
-
         const passwordMatch = await user.comparePassword(password);
         if (!passwordMatch) {
             return null;
