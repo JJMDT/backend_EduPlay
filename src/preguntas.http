@@ -2,7 +2,7 @@
 
 ###
 
-PUT http://localhost:3000/pregunta/5
+PUT http://localhost:3000/pregunta/685765c4702e0b41be37c552
 Content-Type: application/json
 
 {
@@ -13,7 +13,8 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:3000/pregunta/traerbyId/5
+GET http://localhost:3000/pregunta/traerbyId/685765c4702e0b41be37c552
 
 ###
 GET http://localhost:3000/pregunta/traer
+
