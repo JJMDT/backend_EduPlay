@@ -6,6 +6,14 @@ const PORT = 3000;
 const HOST = '127.0.0.1';
 const { getConnection } = require('./src/DB/conexion');
 
+//express: Framework para crear el servidor y las rutas de forma simple.
+
+//cors: Permite que tu frontend (por ejemplo, en Angular) se comunique con el backend sin problemas de seguridad de origen cruzado.
+
+//app: Es tu aplicación Express.
+
+//PORT y HOST: Definen la dirección y el puerto donde corre tu servidor.
+
 getConnection();
 app.use(cors());
 
