@@ -1,3 +1,4 @@
+//Es el servidor principal del backend, hecho con Node.js y el framework Express. Se encarga de levantar la API y manejar las rutas relacionadas con autenticación, preguntas y puntajes.
 const express = require('express');
 const cors = require('cors');
 const app = express();
