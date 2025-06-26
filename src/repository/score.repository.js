@@ -1,4 +1,5 @@
 const Score = require('../models/score')
+//Esta es la capa que accede directamente a la base de datos.
 
 const guardarPuntaje = async (nombre,puntaje) => {
     try {
