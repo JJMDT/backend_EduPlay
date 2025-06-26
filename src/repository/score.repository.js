@@ -30,3 +30,4 @@ const eliminarTodosLosPuntajes = async () => {
 };
 
 module.exports = { guardarPuntaje, obtenerPuntaje, eliminarTodosLosPuntajes}
+//Este módulo es la capa de repositorio, encargada de interactuar directamente con la base de datos. Aquí definimos funciones para guardar nuevos puntajes, obtener los 10 mejores ordenados y eliminar todos los puntajes para reiniciar el ranking. Usamos el modelo Score para manipular los documentos y manejamos errores para asegurar que la aplicación sea robusta.
