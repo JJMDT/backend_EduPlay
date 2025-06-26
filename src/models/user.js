@@ -27,3 +27,4 @@ const userSchema = new Schema({
 //Es asíncrono porque involucra procesamiento criptográfico.
 const User = mongoose.model('User', userSchema);
 module.exports = User;
+//Este módulo define el modelo de usuario para nuestra base de datos MongoDB usando Mongoose. Cada usuario tiene un nombre único y una contraseña. Además, incluye un método para comparar de forma segura la contraseña ingresada con la almacenada, usando el algoritmo de hashing bcrypt. Esto garantiza que las contraseñas no se guarden en texto plano y mejora la seguridad de la aplicación.
