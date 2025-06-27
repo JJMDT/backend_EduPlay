@@ -27,3 +27,11 @@ exports.reiniciarRanking = async (req, res) => {
     res.status(500).json({ error: 'Error al reiniciar el ranking' });
   }
 };
+//Este es el controlador del ranking. Se encarga de recibir las solicitudes del frontend relacionadas con los puntajes. Tiene tres funciones:
+
+//calcularPuntaje: guarda un nuevo puntaje que envía el usuario.
+
+//obtenerPuntajes: devuelve los puntajes ordenados (top 10).
+
+//reiniciarRanking: borra todos los puntajes guardados en la base.
+//Cada función se conecta con la capa de servicios, que a su vez se conecta con MongoDB.
