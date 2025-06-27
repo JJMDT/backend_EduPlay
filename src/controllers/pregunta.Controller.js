@@ -77,3 +77,12 @@ exports.putPreguntaController = async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 };
+//Este archivo es el controlador de preguntas, encargado de recibir las solicitudes desde el frontend (como Angular). Tiene funciones para crear, leer, actualizar y eliminar preguntas. Cada función llama a la capa de servicios que se encarga de hablar con la base de datos MongoDB. Por ejemplo:
+
+//crearPreguntaController guarda una nueva pregunta.
+
+//getPreguntaController devuelve una aleatoria.
+
+//putPreguntaController actualiza una pregunta existente.
+
+//eliminarPreguntaController la borra.
