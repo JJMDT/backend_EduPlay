@@ -14,3 +14,9 @@ exports.getConnection = async () => {
         process.exit(1);
     }
 }
+//Esta parte del backend se encarga de conectar nuestra aplicación con la base de datos MongoDB en la nube.
+//Construye la URL segura con los datos de usuario, contraseña y nombre de la base (que están en variables de entorno para mayor seguridad).
+//Luego usa Mongoose para establecer la conexión.
+//Además, al iniciar, crea un usuario administrador por defecto si no existe para poder manejar la app.
+
+//Si la conexión falla, la aplicación se detiene para evitar errores mayores.
