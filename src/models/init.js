@@ -15,5 +15,5 @@ const crearAdmin = async () => {
         console.error('Error al crear el usuario administrador:', error);
     }
 }
-
+//Este archivo contiene una función que se ejecuta al iniciar la aplicación. Verifica si ya existe un usuario con nombre "admin". Si no lo encuentra, crea uno nuevo con una contraseña encriptada por seguridad. Esto permite tener acceso de administrador desde el principio sin cargar manualmente datos en la base.
 module.exports = crearAdmin;
